@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cellViews="clr-namespace:RSSFeed.Views.CellViews"
+    x:Class="RSSFeed.Views.RSSFeedView"
+    Title="{Binding Title}">
+    <StackLayout Margin="1">
+        <RefreshView
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                SelectedItem="{Binding SelectedItem}"
+                SelectionChangedCommand="{Binding FeedItemSelectedCommand}"
+                ItemsSource="{Binding FeedItemList}"
+                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
+                                 <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
+                                           WidthRequest="120"
+                                           HeightRequest="60"
+                                        Aspect="AspectFit"/>
+                                <StackLayout Margin="0,16">
+                                    <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
+                                           TextColor="Gray"/>
+                                    <Label Text="{Binding Title}" FontFamily="Medium" FontSize="20" TextColor="Black"/>
+                                    <Label Text="{Binding Creator, Converter={StaticResource CreatorConverter}}" FontFamily="Medium" FontSize="13" TextColor="Gray"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:RSSFeed.Behaviors"
+    x:Class="RSSFeed.Views.UserProfileView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:customrenderers="clr-namespace:RSSFeed.CustomRenderers"
+    ios:Page.UseSafeArea="True">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="IconRegular"
+            Glyph="&#xf02e;"
+            Size="24"
+            Color="Black">
+        </FontImageSource>
+    </ContentPage.IconImageSource>
+    <StackLayout>
+        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Username" Text="{Binding Username}"/>
+        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Surname" Text="{Binding Surname}"/>
+        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Lastname" Text="{Binding Lastname}"/>
+        <customrenderers:CustomEntry Keyboard="Telephone" Placeholder="Phone" Text="{Binding Phone}">
+            <Entry.Behaviors>
+                <behaviors:FormatPhoneBehavior/>
+            </Entry.Behaviors>
+        </customrenderers:CustomEntry>
+        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Email" Text="{Binding Email}"/>
+        <customrenderers:CustomEntry IsPassword="True" Placeholder="Password" Text="{Binding Password}"/>
+        <Button Text="Sign Out" Command="{Binding SignOutCommand}" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+</ContentPage>

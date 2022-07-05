@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RSSFeed.Views.FeedChannelView">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="IconRegular"
+            Glyph="&#xf009;"
+            Size="24"
+            Color="Black">
+        </FontImageSource>
+    </ContentPage.IconImageSource>
+    <StackLayout>
+        <Button Text="Add Feed" Command="{Binding AddFeedChannelCommand}"/>
+
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+            <CollectionView
+            ItemsSource="{Binding FeedChannelList}"
+            SelectedItem="{Binding SelectedFeedChannelItem}"
+            SelectionChangedCommand="{Binding FeedChannelItemSelectedCommand}"
+            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Orientation="Horizontal" Padding="10,10" Margin="0">
+                                <Image
+                                    Source="{Binding ImageUrl, Converter={StaticResource ImageSourceConverter}}"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    Aspect="AspectFit"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Title}" FontFamily="Medium" FontSize="Subtitle"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                 <CollectionView.EmptyView>
+                <ContentView>
+                    <StackLayout>
+                        <Image VerticalOptions="EndAndExpand">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="IconRegular"
+                                    Glyph="&#xe0e5;"
+                                    Size="160"
+                                    Color="LightGray" />
+                            </Image.Source>
+                        </Image>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            FontAttributes="Italic"
+                            Text="Not RSS Feed Found"
+                            TextColor="{StaticResource PrimaryColor}"
+                            VerticalOptions="StartAndExpand">
+                        </Label>
+                    </StackLayout>
+                </ContentView>
+            </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

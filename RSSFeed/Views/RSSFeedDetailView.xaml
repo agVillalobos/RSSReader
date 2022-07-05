@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:effects="clr-namespace:RSSFeed.Effects"
+    x:Class="RSSFeed.Views.RSSFeedDetailView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True">
+     <ScrollView>
+        <StackLayout Margin="16">
+            <Label Text="{Binding FeedItem.Title}" FontSize="Title" TextColor="Black"/>
+            <StackLayout Margin="0" Orientation="Horizontal">
+                <Label Text="{Binding FeedItem.Creator, Converter={StaticResource CreatorConverter}}" TextColor="{StaticResource PrimaryDarkColor}"/>
+                <Label Text="{Binding FeedItem.PubDate, Converter={StaticResource DateTimeConverter}}" TextColor="Gray"/>
+            </StackLayout>
+            <Image Source="{Binding FeedItem.Content.UrlImage}" />
+            <Label Text="{Binding FeedItem.Description}" TextColor="Black"/>
+            <Label Margin="0,16,0,0" Text="{Binding FeedItem.Guid}" TextColor="Black">
+                <Label.Effects>
+                    <effects:UnderlineLabelEffect />
+                </Label.Effects>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenWebViewCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
