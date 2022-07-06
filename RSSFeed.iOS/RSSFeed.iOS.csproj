@@ -110,6 +110,9 @@
     <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>4.6.0.1180</Version>
     </PackageReference>
+    <PackageReference Include="Com.Airbnb.iOS.Lottie">
+      <Version>2.5.13</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RSSFeed\RSSFeed.csproj">
@@ -128,6 +131,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\appstore.png" />
+    <BundleResource Include="star.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

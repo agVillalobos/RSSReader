@@ -88,14 +88,22 @@ namespace RSSFeed.Services
         {
             var myFavoriteItem = myFavoriteItems.FirstOrDefault(l => l.Guid == feedItem.Guid);
 
-            if (myFavoriteItem == null)
-            {
-                myFavoriteItems.Add(feedItem);
+            if (myFavoriteItem != null) return false;
 
-                return true;
-            }
+            myFavoriteItems.Add(feedItem);
 
-            return false;
+            return true;
+        }
+
+        public bool RemoveFeedItem(FeedItem feedItem)
+        {
+            var myFavoriteItem = myFavoriteItems.FirstOrDefault(l => l.Guid == feedItem.Guid);
+
+            if (myFavoriteItem == null) return false;
+
+            myFavoriteItems.Remove(feedItem);
+
+            return true;
         }
     }
 }

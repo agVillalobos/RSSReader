@@ -11,6 +11,7 @@ namespace RSSFeed.ViewModels
     public class RSSFeedDetailViewModel : BaseViewModel
     {
         private FeedItem feedItem;
+        private bool isAnimating;
         private readonly IFeedService feedService;
 
         public RSSFeedDetailViewModel(
@@ -23,16 +24,25 @@ namespace RSSFeed.ViewModels
             this.feedService = feedService;
 
             OpenWebViewCommand = new Command(async () => await OpenWebView());
-            AddMyFavoritesCommand = new Command(AddMyFavorites);
+            AddRemoveMyFavoritesCommand = new Command(AddRemoveMyFavorites);
         }
 
-        private void AddMyFavorites()
+        private void AddRemoveMyFavorites()
         {
-            var isFeedItemAddedSuccessfully = feedService.AddFeedItem(feedItem);
-
-            var message = isFeedItemAddedSuccessfully ? "Article added correctly to my favorites" : "You already added this article";
+            feedItem.Favorite = !feedItem.Favorite;
+            String message = null;
+            if (feedItem.Favorite)
+            {
+                var isFeedItemAddedSuccessfully = feedService.AddFeedItem(feedItem);
+                message = isFeedItemAddedSuccessfully ? "Article added correctly to my favorites" : "You already added this article";
+            } else
+            {
+                var isFeedItemRemmovedSuccessfully = feedService.RemoveFeedItem(feedItem);
+                message = isFeedItemRemmovedSuccessfully ? "Article was removed correctly to my favorites" : "No articles to remove";
+            }
 
             UserDialogs.Toast(message, TimeSpan.FromSeconds(2));
+
         }
 
         private async Task OpenWebView()
@@ -41,8 +51,13 @@ namespace RSSFeed.ViewModels
         }
 
         public ICommand OpenWebViewCommand { get; private set; }
+        public ICommand AddRemoveMyFavoritesCommand { get; private set; }
 
-        public ICommand AddMyFavoritesCommand { get; private set; }
+        public bool IsAnimating
+        {
+            get => isAnimating;
+            set => SetProperty(ref isAnimating, value);
+        }
 
         public FeedItem FeedItem
         {

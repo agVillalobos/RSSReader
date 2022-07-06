@@ -11,5 +11,6 @@ namespace RSSFeed.Models
         public string Guid { get; set; }
         public FeedContent Content { get; set; }
         public string Creator { get; set; }
+        public bool Favorite { get; set; }
     }
 }

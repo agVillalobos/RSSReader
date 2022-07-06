@@ -13,5 +13,6 @@ namespace RSSFeed.Interfaces
         Task<bool> AddFeedChannelAsync(string url);
         Task<FeedChannel> GetFeedChannelAsync(string url);
         bool AddFeedItem(FeedItem feedItem);
+        bool RemoveFeedItem(FeedItem feedItem);
     }
 }
