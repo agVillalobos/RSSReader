@@ -70,16 +70,17 @@ namespace RSSFeed.ViewModels
         {
             var feedChannel = await feedService.GetFeedChannelAsync(url);
             var result = await feedService.AddFeedChannelAsync(url);
+            await Task.Delay(1000);
 
             if (!result)
             {
-                await Task.Delay(1000);
                 //Display error to user.
                 UserDialogs.Toast("Error to add RSS Feed, incorrect URL", TimeSpan.FromSeconds(4));
             }
             else
             {
                 FeedChannelList.Add(feedChannel);
+                UserDialogs.Toast("Added correctly", TimeSpan.FromSeconds(4));
             }
         }
 

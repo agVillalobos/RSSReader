@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using RSSFeed.CustomRenderers;
 using RSSFeed.iOS.CustomRenderers;
 using Xamarin.Forms;
@@ -11,6 +12,18 @@ namespace RSSFeed.iOS.CustomRenderers
     {
         public CustomEntryRenderer()
         {
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == null || !(sender is CustomEntry) || Control == null) return;
+
+            var customEntry = (CustomEntry)sender;
+
+            Control.Layer.BorderColor = customEntry.BorderColor.ToCGColor();
+            Control.Layer.BorderWidth = customEntry.BorderWidth;
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Acr.UserDialogs;
 using RSSFeed.Interfaces;
+using RSSFeed.Rules;
+using RSSFeed.Validations;
 using Xamarin.Forms;
 
 namespace RSSFeed.ViewModels
@@ -9,67 +12,109 @@ namespace RSSFeed.ViewModels
     public class SignUpViewModel: BaseViewModel
     {
         private readonly IUserService userService;
+        private ValidatableObject<string> username;
+        private ValidatableObject<string> surname;
+        private ValidatableObject<string> phone;
+        private ValidatableObject<string> password;
+        private ValidatableObject<string> email;
+        private ValidatableObject<string> lastname;
 
         public SignUpViewModel(INavigation navigation, IUserService userService, IUserDialogs userDialogs) : base(navigation, userDialogs)
         {
+            Username = new ValidatableObject<string>();
+            Surname = new ValidatableObject<string>();
+            Phone = new ValidatableObject<string>();
+            Password = new ValidatableObject<string>();
+            Email = new ValidatableObject<string>();
+            Lastname = new ValidatableObject<string>();
 
             this.userService = userService;
 
             SignUpCommand = new Command(async () => await SingUp());
+
+            AddValidations();
         }
 
         private async Task SingUp()
         {
-            var isSignUpSuccesfull = await userService.SignUp(new Models.User(Username, Password, Email, Surname, Lastname, "", Phone));
+            if (!AreFieldsValid()) return;
+
+            var isSignUpSuccesfull = await userService.SignUp(new Models.User(Username.Value, Password.Value, Email.Value, Surname.Value, Lastname.Value, "", Phone.Value));
+
 
             if (isSignUpSuccesfull)
             {
+                SignUpCommand.CanExecute(false);
+                UserDialogs.Toast("User added successfully", TimeSpan.FromSeconds(2));
+                await Task.Delay(2000);
+
                 await NavigationService.PopAsync();
             }
+            else
+            {
+                UserDialogs.Toast("Error while trying to add User. Please try again.", TimeSpan.FromSeconds(2));
+            }
+
         }
 
-        public Command SignUpCommand { get; private set; }
-
-        private string _username;
-        public string Username
+        private bool AreFieldsValid()
         {
-            get => _username;
-            set => SetProperty(ref _username, value);
+            var isUserNameValid = Username.Validate();
+            var isSurnameValid = Surname.Validate();
+            var isPhoneValid = Phone.Validate();
+            var isPasswordValid = Password.Validate();
+            var isEmailValid = Email.Validate();
+            var isLastNameValid = Lastname.Validate();
+
+            return isUserNameValid && isSurnameValid && isPhoneValid && isPasswordValid && isEmailValid && isLastNameValid;
         }
 
-        private string _surname;
-        public string Surname
+        public void AddValidations()
         {
-            get => _surname;
-            set => SetProperty(ref _surname, value);
+            Username.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Username is required"});
+            Surname.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Surname is required" });
+            Phone.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Phone is required" });
+            Password.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Password is required" });
+            Email.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Email is required" });
+            Lastname.Validations.Add(new IsNotNullOrEmptyRule<string>() { ValidationMessage = "Lastname is required" });
         }
 
-        private string _lastname;
-        public string Lastname
+        public ICommand SignUpCommand { get; private set; }
+
+        public ValidatableObject<string> Username
         {
-            get => _lastname;
-            set => SetProperty(ref _lastname, value);
+            get => username;
+            set => SetProperty(ref username, value);
+        } 
+
+        public ValidatableObject<string> Surname
+        {
+            get => surname;
+            set => SetProperty(ref surname, value);
         }
 
-        private string _email;
-        public string Email
+        public ValidatableObject<string> Lastname
         {
-            get => _email;
-            set => SetProperty(ref _email, value);
+            get => lastname;
+            set => SetProperty(ref lastname, value);
         }
 
-        private string _password;
-        public string Password
+        public ValidatableObject<string> Email
         {
-            get => _password;
-            set => SetProperty(ref _password, value);
+            get => email;
+            set => SetProperty(ref email, value);
         }
 
-        private string _phone;
-        public string Phone
+        public ValidatableObject<string> Password
         {
-            get => _phone;
-            set => SetProperty(ref _phone, value);
+            get => password;
+            set => SetProperty(ref password, value);
+        }
+
+        public ValidatableObject<string> Phone
+        {
+            get => phone;
+            set => SetProperty(ref phone, value);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Util;
@@ -15,6 +16,26 @@ namespace RSSFeed.Droid.CustomRenderers
         public CustomEntryRenderer(Context context) : base(context)
         {
 
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (!(Element is CustomEntry) || Control == null) return;
+
+            var view = (CustomEntry)Element;
+            if (view.IsCurvedCornersEnabled)
+            {
+                var gradientDrawable = new GradientDrawable();
+                gradientDrawable.SetShape(ShapeType.Rectangle);
+                gradientDrawable.SetColor(view.BackgroundColor.ToAndroid());
+                gradientDrawable.SetStroke(view.BorderWidth, view.BorderColor.ToAndroid());
+                gradientDrawable.SetCornerRadius(DpToPixels(this.Context, Convert.ToSingle(view.CornerRadius)));
+
+                Control.SetBackground(gradientDrawable);
+            }
+            Control.SetPadding((int)DpToPixels(this.Context, Convert.ToSingle(12)), Control.PaddingTop, (int)DpToPixels(this.Context, Convert.ToSingle(12)), Control.PaddingBottom);
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)

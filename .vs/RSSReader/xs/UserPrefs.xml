@@ -1,18 +1,31 @@
-﻿<Properties StartupConfiguration="{6F53A3E9-A7F7-450A-AC21-CFC6885FB60C}|Default">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{C43E502A-E720-4F88-91EF-1513ECE062CD}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/Services/UserService.cs">
+    <Files>
+      <File FileName="RSSFeed/ViewModels/SignUpViewModel.cs" Line="47" Column="49" />
+      <File FileName="RSSFeed/ViewModels/UserProfileViewModel.cs" Line="1" Column="1" />
+      <File FileName="RSSFeed/Services/UserService.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RSSReader" expanded="True" selected="True" />
+          <Node name="RSSReader" expanded="True">
+            <Node name="RSSFeed" expanded="True">
+              <Node name="Services" expanded="True">
+                <Node name="UserService.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="RSSFeed.iOS" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.RSSFeed.Android PreferredExecutionTarget="Android.pixel_2_marshmallow_6_0_-_api_23" />
+  <MonoDevelop.Ide.ItemProperties.RSSFeed.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.ItemProperties.RSSFeed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.117cf73997a168a136d48c156ea179e30ce2a9b5" />
 </Properties>

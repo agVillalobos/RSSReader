@@ -14,6 +14,7 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.6.0.1180" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\" />
@@ -31,6 +32,10 @@
     <None Remove="AppResources\Fonts\MaterialIcons-Regular.ttf" />
     <None Remove="CustomRenderers\" />
     <None Remove="Acr.UserDialogs" />
+    <None Remove="Triggers\" />
+    <None Remove="Validations\" />
+    <None Remove="Xamarin.Forms.Visual.Material" />
+    <None Remove="Validations\Rules\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -46,6 +51,9 @@
     <Folder Include="AppResources\" />
     <Folder Include="AppResources\Fonts\" />
     <Folder Include="CustomRenderers\" />
+    <Folder Include="Triggers\" />
+    <Folder Include="Validations\" />
+    <Folder Include="Validations\Rules\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppResources\Fonts\MaterialIcons-Regular.ttf" />

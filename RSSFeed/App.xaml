@@ -9,6 +9,7 @@
         <Color x:Key="PrimaryColor">#344955</Color>
         <Color x:Key="PrimaryDarkColor">#232F34</Color>
         <Color x:Key="AccentColor">#F9AA33</Color>
+        <Color x:Key="ErrorColor">Red</Color>
 
         <!--Global Styles-->
         <Style TargetType="Label">
@@ -16,6 +17,11 @@
             <Setter Property="TextColor" Value="Black"/>
         </Style>
         <Style TargetType="customrenderers:CustomEntry">
+            <Style.Triggers>
+                <Trigger TargetType="customrenderers:CustomEntry" Property="IsFocused" Value="True">
+                    <Setter Property="BorderColor" Value="Blue" />
+                </Trigger>
+            </Style.Triggers>
             <Setter Property="FontFamily" Value="Regular" />
             <Setter Property="BackgroundColor" Value="White"/>
             <Setter Property="TextColor" Value="Black"/>
@@ -57,10 +63,24 @@
             <Setter Property="BackgroundColor" Value="White"/>
         </Style>
 
+        <!--Explicit Styles-->
+        <Style x:Key="ValidationErrorLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+                <Setter Property="FontSize" Value="12" />
+        </Style>
+
+          <Style TargetType="Label" x:Key="TitleStyle">
+                <Setter Property="TextColor" Value = "{StaticResource PrimaryColor}"   />
+                <Setter Property="HorizontalOptions" Value = "Center"   />
+                <Setter Property="FontSize" Value = "Title"   />
+            </Style>
+
         <!--Converters-->
         <converters:DateTimeConverter x:Key="DateTimeConverter" />
         <converters:CreatorConverter x:Key="CreatorConverter"/>
         <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
         <converters:DataValidationConverter x:Key="DataValidationConverter"/>
+        <converters:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter"/>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
     </Application.Resources>
 </Application>
