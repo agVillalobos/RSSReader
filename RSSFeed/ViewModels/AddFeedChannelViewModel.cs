@@ -12,6 +12,8 @@ namespace RSSFeed.ViewModels
 
         public AddFeedChannelViewModel(INavigation navigation, IUserDialogs userDialogs) : base(navigation, userDialogs)
         {
+            FeedUrl = "https://";
+
             AddFeedChannelCommand = new Command(async () => await AddFeedChannel());
         }
 

@@ -73,7 +73,9 @@ namespace RSSFeed.ViewModels
 
             if (!result)
             {
+                await Task.Delay(1000);
                 //Display error to user.
+                UserDialogs.Toast("Error to add RSS Feed, incorrect URL", TimeSpan.FromSeconds(4));
             }
             else
             {
