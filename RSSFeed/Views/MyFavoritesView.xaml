@@ -5,7 +5,9 @@
     x:Class="RSSFeed.Views.MyFavoritesView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="True"
-    Title="My Favorites">
+    Title="My Favorites"
+    x:Name="this"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" >
     <ContentPage.IconImageSource>
         <FontImageSource
             FontFamily="IconRegular"
@@ -29,44 +31,52 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
-                            <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
-                                <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItem
+                                        BackgroundColor="Red"
+                                        Command="{Binding Source={x:Reference this}, Path=BindingContext.RemoveFeedItemCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Remove" />
+                                </SwipeView.RightItems>
+                                <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
+                                    <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
                                            WidthRequest="120"
                                            HeightRequest="60"
                                         Aspect="AspectFit"/>
-                                <StackLayout Margin="0,16">
-                                    <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
+                                    <StackLayout Margin="0,16">
+                                        <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
                                            TextColor="Gray"/>
-                                    <Label Text="{Binding Title}" FontFamily="Medium" FontSize="20" TextColor="Black"/>
-                                    <Label Text="{Binding Creator, Converter={StaticResource CreatorConverter}}" FontFamily="Medium" FontSize="13" TextColor="Gray"/>
+                                        <Label Text="{Binding Title}" FontFamily="Medium" FontSize="20" TextColor="Black"/>
+                                        <Label Text="{Binding Creator, Converter={StaticResource CreatorConverter}}" FontFamily="Medium" FontSize="13" TextColor="Gray"/>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
+                            </SwipeView>
                         </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
-                <ContentView>
-                    <StackLayout>
-                        <Image VerticalOptions="EndAndExpand">
-                            <Image.Source>
-                                <FontImageSource
-                                    FontFamily="IconRegular"
-                                    Glyph="&#xe0e5;"
-                                    Size="160"
-                                    Color="LightGray" />
-                            </Image.Source>
-                        </Image>
-                        <Label
+                    <ContentView>
+                        <StackLayout>
+                            <forms:AnimationView
+                                RepeatMode="Infinite"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                x:Name="animationView"
+                                Animation="empty-state.json"
+                                AnimationSource="AssetOrBundle"
+                                AutoPlay="True"/>
+                            <Label
                             HorizontalTextAlignment="Center"
                             FontAttributes="Bold"
                             FontSize="24"
                             Text="No favorite articles yet"
                             TextColor="{StaticResource PrimaryColor}"
                             VerticalOptions="StartAndExpand">
-                        </Label>
-                    </StackLayout>
-                </ContentView>
-            </CollectionView.EmptyView>
+                            </Label>
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
             </CollectionView>
         </RefreshView>
     </StackLayout>

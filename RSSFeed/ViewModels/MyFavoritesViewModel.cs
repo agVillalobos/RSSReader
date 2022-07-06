@@ -23,8 +23,14 @@ namespace RSSFeed.ViewModels
             this.feedService = feedService;
 
             FeedItemSelectedCommand = new Command(async () => await SelectFeedItem());
-
+            RemoveFeedItemCommand = new Command<FeedItem>(RemoveFeedItem);
             RefreshCommand.Execute(this);
+        }
+
+        private void RemoveFeedItem(FeedItem feedItem)
+        {
+            feedService.RemoveFeedItem(feedItem);
+            FeedItemList.Remove(feedItem);
         }
 
         public override Task OnAppearingAsync()
@@ -34,6 +40,7 @@ namespace RSSFeed.ViewModels
         }
 
         public ICommand FeedItemSelectedCommand { get; protected set; }
+        public ICommand RemoveFeedItemCommand { get; protected set; }
 
         public override async Task Refresh()
         {

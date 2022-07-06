@@ -10,8 +10,7 @@ namespace RSSFeed.Views
 {
     public partial class RSSFeedDetailView : ContentPage
     {
-        public bool IsOn { get; set; }
-        private bool initAnimation;
+        private bool isOn;
 
         public RSSFeedDetailView(FeedItem feedItem)
         {
@@ -20,17 +19,17 @@ namespace RSSFeed.Views
             var userDialogs = DependencyService.Get<IUserDialogs>();
             var feedService = DependencyService.Get<IFeedService>();
 
-            IsOn = feedItem.Favorite;
-            initAnimation = true;
+            isOn = feedItem.Favorite;
+            animationView.AutoPlay = feedItem.Favorite;
 
             this.BindingContext = new RSSFeedDetailViewModel(Navigation, userDialogs, feedService, feedItem);
         }
 
-        public void Animate()
+        private void Clicked(object sender, EventArgs e)
         {
             if (!animationView.IsAnimating)
             {
-                if (IsOn)
+                if (isOn)
                 {
                     animationView.PlayMinAndMaxFrame(1, 2);
                 }
@@ -40,25 +39,12 @@ namespace RSSFeed.Views
                 }
 
                 animationView.Progress = 0;
-                IsOn = !IsOn;
+                isOn = !isOn;
             }
-        }
-
-        private void Clicked(object sender, EventArgs e)
-        {
-            Animate();
         }
 
         private void Finished(object sender, EventArgs e)
         {
-            if (initAnimation)
-            {
-                if (!IsOn)
-                {
-                    animationView.PlayMinAndMaxFrame(1, 2);
-                }
-                initAnimation = false;
-            }
             animationView.AutoPlay = false;
         }
     }
