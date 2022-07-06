@@ -4,12 +4,13 @@
             xmlns:local="clr-namespace:RSSFeed.Views"
             x:Class="RSSFeed.Views.HomeView"
             BackgroundColor="White">
-  <!--Pages can be added as references or inline-->
-  <NavigationPage Title="Feed">
+    <!--Pages can be added as references or inline-->
+    <NavigationPage Title="Feed">
         <x:Arguments>
-        <local:FeedChannelView Title="Feed"/>
-		</x:Arguments>
+            <local:FeedChannelView Title="Feed"/>
+        </x:Arguments>
     </NavigationPage>
+    <local:MyFavoritesView Title="My Favorites"/>
     <local:UserProfileView Title="Profile"/>
 
 </TabbedPage>

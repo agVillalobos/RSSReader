@@ -22,6 +22,7 @@
                     <TapGestureRecognizer Command="{Binding OpenWebViewCommand}" NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>
             </Label>
+            <Button Text="Add My Favorites" Command="{Binding AddMyFavoritesCommand}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

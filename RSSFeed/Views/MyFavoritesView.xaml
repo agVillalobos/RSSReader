@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RSSFeed.Views.MyFavoritesView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="My Favorites">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="IconRegular"
+            Glyph="&#xe838;"
+            Size="24"
+            Color="Black">
+        </FontImageSource>
+    </ContentPage.IconImageSource>
+    <StackLayout>
+        <RefreshView
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView
+                SelectedItem="{Binding SelectedItem}"
+                SelectionChangedCommand="{Binding FeedItemSelectedCommand}"
+                ItemsSource="{Binding FeedItemList}"
+                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
+                                <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
+                                           WidthRequest="120"
+                                           HeightRequest="60"
+                                        Aspect="AspectFit"/>
+                                <StackLayout Margin="0,16">
+                                    <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
+                                           TextColor="Gray"/>
+                                    <Label Text="{Binding Title}" FontFamily="Medium" FontSize="20" TextColor="Black"/>
+                                    <Label Text="{Binding Creator, Converter={StaticResource CreatorConverter}}" FontFamily="Medium" FontSize="13" TextColor="Gray"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                <ContentView>
+                    <StackLayout>
+                        <Image VerticalOptions="EndAndExpand">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="IconRegular"
+                                    Glyph="&#xe0e5;"
+                                    Size="160"
+                                    Color="LightGray" />
+                            </Image.Source>
+                        </Image>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            FontAttributes="Bold"
+                            FontSize="24"
+                            Text="No favorite articles yet"
+                            TextColor="{StaticResource PrimaryColor}"
+                            VerticalOptions="StartAndExpand">
+                        </Label>
+                    </StackLayout>
+                </ContentView>
+            </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

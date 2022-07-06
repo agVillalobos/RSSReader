@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using RSSFeed.Interfaces;
 using RSSFeed.Models;
 using RSSFeed.Parser;
+using System.Linq;
 
 namespace RSSFeed.Services
 {
-    public class FeedService: IFeedService
+    public class FeedService : IFeedService
     {
         private readonly HttpClient httpClient;
         private IList<FeedChannel> feedChannels;
@@ -23,11 +24,13 @@ namespace RSSFeed.Services
             //"https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml"
             //"http://feeds.feedburner.com/TheDailyPuppy"
         };
+        private IList<FeedItem> myFavoriteItems;
 
         public FeedService()
         {
             this.httpClient = HttpClientManager.HttpClient.Value;
             this.feedChannels = new List<FeedChannel>();
+            myFavoriteItems = new List<FeedItem>();
 
             _ = InitializeFeedChannels();
         }
@@ -41,6 +44,8 @@ namespace RSSFeed.Services
         }
 
         public IList<FeedChannel> FeedChannels => this.feedChannels;
+
+        public IList<FeedItem> MyFavoriteItems => this.myFavoriteItems;
 
         public async Task<bool> AddFeedChannelAsync(string url)
         {
@@ -77,6 +82,20 @@ namespace RSSFeed.Services
             }
 
             return feedChannel;
+        }
+
+        public bool AddFeedItem(FeedItem feedItem)
+        {
+            var myFavoriteItem = myFavoriteItems.FirstOrDefault(l => l.Guid == feedItem.Guid);
+
+            if (myFavoriteItem == null)
+            {
+                myFavoriteItems.Add(feedItem);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

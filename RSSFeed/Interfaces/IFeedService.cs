@@ -8,8 +8,10 @@ namespace RSSFeed.Interfaces
     public interface IFeedService
     {
         IList<FeedChannel> FeedChannels { get; }
+        IList<FeedItem> MyFavoriteItems { get; }
 
         Task<bool> AddFeedChannelAsync(string url);
         Task<FeedChannel> GetFeedChannelAsync(string url);
+        bool AddFeedItem(FeedItem feedItem);
     }
 }
