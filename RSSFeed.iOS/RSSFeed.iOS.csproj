@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RSSFeed\RSSFeed.csproj">
-      <Project>{FCACDAAA-BD24-4970-BB93-C6A67654A6C9}</Project>
+      <Project>{3BE3D338-D4C9-4614-B7BE-AB5676020C14}</Project>
       <Name>RSSFeed</Name>
     </ProjectReference>
   </ItemGroup>

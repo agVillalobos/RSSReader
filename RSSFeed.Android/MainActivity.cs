@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using System.Net;
+using Acr.UserDialogs;
 
 namespace RSSFeed.Droid
 {
@@ -17,6 +18,7 @@ namespace RSSFeed.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            UserDialogs.Init(this);
             LoadApplication(new App());
             this.UntrustedCertificateWorkAround();
         }
