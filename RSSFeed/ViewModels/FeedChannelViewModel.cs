@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
@@ -16,7 +17,8 @@ namespace RSSFeed.ViewModels
         private readonly IFeedService feedService;
         private ObservableCollection<FeedChannel> feedChannelList;
         private FeedChannel selectedFeedChannelItem;
-        
+        private string searchText;
+
         public FeedChannelViewModel(
             INavigation navigation,
             IFeedService feedService,
@@ -28,6 +30,7 @@ namespace RSSFeed.ViewModels
 
             AddFeedChannelCommand = new Command(async () => await NavigateToAddFeedChannel());
             FeedChannelItemSelectedCommand = new Command(async () => await SeletFeedChannel());
+            SearchCommand = new Command<string>(SearchChannelName);
             RefreshCommand.Execute(this);
 
             MessagingCenter.Subscribe<AddFeedChannelViewModel, string>(
@@ -38,13 +41,35 @@ namespace RSSFeed.ViewModels
 
         public ICommand AddFeedChannelCommand { get; private set; }
         public ICommand FeedChannelItemSelectedCommand { get; private set; }
+        public ICommand SearchCommand { get; private set; }
+
+        private void SearchChannelName() => SearchChannelName(SearchText);
+
+        private void SearchChannelName(string channelName)
+        {
+            IsRefreshing = true;
+
+            if (string.IsNullOrEmpty(channelName))
+            {
+                RefreshCommand.Execute(this);
+            }
+            else
+            {
+                FeedChannelList.Clear();
+                var chhannels = feedService.FeedChannels;
+                foreach (var channel in chhannels.Where(channel => channel.Title.Contains(channelName)).ToList())
+                {
+                    FeedChannelList.Add(channel);
+                }
+            }
+
+            IsRefreshing = false;
+        }
 
         private async Task SeletFeedChannel()
         {
             await NavigationService.PushAsync(new RSSFeedView(SelectedFeedChannelItem));
         }
-
-        
 
         public override async Task Refresh()
         {
@@ -99,6 +124,16 @@ namespace RSSFeed.ViewModels
         {
             get => feedChannelList;
             set => SetProperty(ref feedChannelList, value);
+        }
+
+        public string SearchText
+        {
+            get => searchText;
+            set
+            {
+                SetProperty(ref searchText, value);
+                SearchChannelName();
+            }
         }
     }
 }

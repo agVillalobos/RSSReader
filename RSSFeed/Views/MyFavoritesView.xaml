@@ -17,6 +17,11 @@
         </FontImageSource>
     </ContentPage.IconImageSource>
     <StackLayout>
+         <SearchBar
+            Placeholder="Type topic"
+            SearchCommand="{Binding SearchCommand}"
+            Text="{Binding SearchText}">
+        </SearchBar>
         <RefreshView
             Command="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}">

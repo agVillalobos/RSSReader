@@ -13,7 +13,11 @@
     </ContentPage.IconImageSource>
     <StackLayout>
         <Button Text="Add Feed" Command="{Binding AddFeedChannelCommand}"/>
-
+        <SearchBar
+            Placeholder="Type a RSS channel name"
+            SearchCommand="{Binding SearchCommand}"
+            Text="{Binding SearchText}">
+        </SearchBar>
         <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
             <CollectionView
             ItemsSource="{Binding FeedChannelList}"

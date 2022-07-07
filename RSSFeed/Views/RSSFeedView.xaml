@@ -6,6 +6,11 @@
     x:Class="RSSFeed.Views.RSSFeedView"
     Title="{Binding Title}">
     <StackLayout Margin="1">
+        <SearchBar
+            Placeholder="Type topic"
+            SearchCommand="{Binding SearchCommand}"
+            Text="{Binding SearchText}">
+        </SearchBar>
         <RefreshView
             Command="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}">
