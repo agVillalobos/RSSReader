@@ -4,13 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cellViews="clr-namespace:RSSFeed.Views.CellViews"
     x:Class="RSSFeed.Views.RSSFeedView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
     Title="{Binding Title}">
-    <StackLayout Margin="1">
+    <StackLayout Margin="10">
+        <Label
+                FontFamily="IconsSolid"
+                FontSize="26"
+                HorizontalTextAlignment="End"
+                Text="&#x00D7;">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
         <SearchBar
             Placeholder="Type topic"
             SearchCommand="{Binding SearchCommand}"
             Text="{Binding SearchText}">
         </SearchBar>
+
         <RefreshView
             Command="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}">
@@ -26,7 +38,7 @@
                     <DataTemplate>
                         <ContentView>
                             <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
-                                 <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
+                                <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
                                            WidthRequest="120"
                                            HeightRequest="60"
                                         Aspect="AspectFit"/>

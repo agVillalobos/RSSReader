@@ -8,6 +8,15 @@
     ios:Page.UseSafeArea="True">
     <ScrollView>
         <StackLayout Margin="16,4">
+            <Label
+                FontFamily="IconsSolid"
+                FontSize="26"
+                HorizontalTextAlignment="End"
+                Text="&#x00D7;">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
             <forms:AnimationView
                 HeightRequest="60"
                 WidthRequest="60"

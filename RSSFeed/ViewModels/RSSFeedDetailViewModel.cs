@@ -47,7 +47,12 @@ namespace RSSFeed.ViewModels
 
         private async Task OpenWebView()
         {
-            await NavigationService.PushAsync(new Views.WebPage(FeedItem.Guid));
+            await NavigationService.PushModalAsync(new Views.WebPage(FeedItem.Guid));
+        }
+
+        protected override async Task Close()
+        {
+            await NavigationService.PopModalAsync();
         }
 
         public ICommand OpenWebViewCommand { get; private set; }

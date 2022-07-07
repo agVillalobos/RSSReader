@@ -68,7 +68,7 @@ namespace RSSFeed.ViewModels
 
         private async Task SeletFeedChannel()
         {
-            await NavigationService.PushAsync(new RSSFeedView(SelectedFeedChannelItem));
+            await NavigationService.PushModalAsync(new RSSFeedView(SelectedFeedChannelItem));
         }
 
         public override async Task Refresh()
@@ -111,7 +111,7 @@ namespace RSSFeed.ViewModels
 
         private async Task NavigateToAddFeedChannel()
         {
-            await NavigationService.PushAsync(new AddFeedChannelView());
+            await NavigationService.PushModalAsync(new AddFeedChannelView());
         }
 
         public FeedChannel SelectedFeedChannelItem

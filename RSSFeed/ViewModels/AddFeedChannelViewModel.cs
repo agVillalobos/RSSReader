@@ -28,7 +28,12 @@ namespace RSSFeed.ViewModels
         private async Task AddFeedChannel()
         {
             MessagingCenter.Send<AddFeedChannelViewModel, string>(this, "AddFeedChannel", FeedUrl);
-            await NavigationService.PopAsync();
+            await NavigationService.PopModalAsync();
+        }
+
+        protected override async Task Close()
+        {
+            await NavigationService.PopModalAsync();
         }
 
     }

@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Acr.UserDialogs;
 using RSSFeed.Interfaces;
 using RSSFeed.Models;
+using RSSFeed.Views;
 using Xamarin.Forms;
 
 namespace RSSFeed.ViewModels
@@ -88,7 +89,7 @@ namespace RSSFeed.ViewModels
         private async Task SelectFeedItem()
         {
             Console.WriteLine("Feed detail selected");
-            //await NavigationService.PushAsync(new RSSFeedDetailView(selectedItem));
+            await NavigationService.PushModalAsync(new RSSFeedDetailView(selectedItem), false);
         }
 
         public ObservableCollection<FeedItem> FeedItemList

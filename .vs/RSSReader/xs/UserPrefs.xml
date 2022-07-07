@@ -1,18 +1,23 @@
 ﻿<Properties StartupConfiguration="{C43E502A-E720-4F88-91EF-1513ECE062CD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/ViewModels/MyFavoritesViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/Views/MyFavoritesView.xaml">
     <Files>
-      <File FileName="RSSFeed/ViewModels/RSSFeedViewModel.cs" Line="33" Column="1" />
-      <File FileName="RSSFeed/ViewModels/MyFavoritesViewModel.cs" Line="1" Column="1" />
+      <File FileName="RSSFeed/ViewModels/RSSFeedViewModel.cs" Line="74" Column="94" />
+      <File FileName="RSSFeed/ViewModels/MyFavoritesViewModel.cs" Line="92" Column="41" />
+      <File FileName="RSSFeed/ViewModels/FeedChannelViewModel.cs" Line="1" Column="1" />
+      <File FileName="RSSFeed/Views/MyFavoritesView.xaml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RSSReader" expanded="True">
             <Node name="RSSFeed" expanded="True">
-              <Node name="ViewModels" expanded="True">
-                <Node name="MyFavoritesViewModel.cs" selected="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MyFavoritesView.xaml" selected="True" />
+                <Node name="WebPage.xaml" expanded="True" />
               </Node>
-              <Node name="Views" expanded="True" />
             </Node>
             <Node name="RSSFeed.iOS" expanded="True" />
           </Node>
@@ -23,7 +28,14 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="52" column="1" />
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="58" column="1" />
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="60" column="1" />
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="61" column="1" />
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="62" column="1" />
+      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="64" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.RSSFeed.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />

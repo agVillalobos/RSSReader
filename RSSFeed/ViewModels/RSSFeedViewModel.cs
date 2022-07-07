@@ -71,7 +71,12 @@ namespace RSSFeed.ViewModels
 
         private async Task SelectFeedItem()
         {
-            await NavigationService.PushAsync(new RSSFeedDetailView(selectedItem));
+            await NavigationService.PushModalAsync(new RSSFeedDetailView(selectedItem), false);
+        }
+
+        protected override async Task Close()
+        {
+            await NavigationService.PopModalAsync();
         }
 
         public ObservableCollection<FeedItem> FeedItemList

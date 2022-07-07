@@ -20,13 +20,14 @@ namespace RSSFeed.ViewModels
         {
             NavigationService = navigation;
             UserDialogs = userDialogs;
-
-            RefreshCommand = new Command(async () => await Refresh())
-;        }
+            CloseCommand = new Command(async () => await Close());
+            RefreshCommand = new Command(async () => await Refresh());
+        }
 
         public INavigation NavigationService { get; private set; }
         public IUserDialogs UserDialogs { get; private set; }
         public ICommand RefreshCommand { get; private set; }
+        public ICommand CloseCommand { get; private set; }
 
         public string Title
         {
@@ -55,6 +56,7 @@ namespace RSSFeed.ViewModels
         public virtual Task OnDisappearingAsync() => Task.FromResult(true);
 
         public virtual Task Refresh() => Task.FromResult(true);
-        
+
+        protected virtual async Task Close() =>  await NavigationService.PopAsync();
     }
 }
