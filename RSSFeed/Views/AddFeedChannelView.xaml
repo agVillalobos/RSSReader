@@ -2,7 +2,9 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderers="clr-namespace:RSSFeed.CustomRenderers"
-    x:Class="RSSFeed.Views.AddFeedChannelView">
+    x:Class="RSSFeed.Views.AddFeedChannelView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True">
     <StackLayout Margin="40">
         <Label
                 FontFamily="IconsSolid"

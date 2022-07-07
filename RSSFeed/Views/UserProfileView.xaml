@@ -15,17 +15,19 @@
             Color="Black">
         </FontImageSource>
     </ContentPage.IconImageSource>
-    <StackLayout>
-        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Username" Text="{Binding Username}"/>
-        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Surname" Text="{Binding Surname}"/>
-        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Lastname" Text="{Binding Lastname}"/>
-        <customrenderers:CustomEntry Keyboard="Telephone" Placeholder="Phone" Text="{Binding Phone}">
-            <Entry.Behaviors>
-                <behaviors:FormatPhoneBehavior/>
-            </Entry.Behaviors>
-        </customrenderers:CustomEntry>
-        <customrenderers:CustomEntry Keyboard="Text" Placeholder="Email" Text="{Binding Email}"/>
-        <customrenderers:CustomEntry IsPassword="True" Placeholder="Password" Text="{Binding Password}"/>
-        <Button Text="Sign Out" Command="{Binding SignOutCommand}" VerticalOptions="EndAndExpand"/>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
+            <customrenderers:CustomEntry Keyboard="Text" Placeholder="Username" Text="{Binding Username}"/>
+            <customrenderers:CustomEntry Keyboard="Text" Placeholder="Surname" Text="{Binding Surname}"/>
+            <customrenderers:CustomEntry Keyboard="Text" Placeholder="Lastname" Text="{Binding Lastname}"/>
+            <customrenderers:CustomEntry Keyboard="Telephone" Placeholder="Phone" Text="{Binding Phone}">
+                <Entry.Behaviors>
+                    <behaviors:FormatPhoneBehavior/>
+                </Entry.Behaviors>
+            </customrenderers:CustomEntry>
+            <customrenderers:CustomEntry Keyboard="Text" Placeholder="Email" Text="{Binding Email}"/>
+            <customrenderers:CustomEntry IsPassword="True" Placeholder="Password" Text="{Binding Password}"/>
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

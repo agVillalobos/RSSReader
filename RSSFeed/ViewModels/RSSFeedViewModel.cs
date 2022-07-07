@@ -13,6 +13,7 @@ namespace RSSFeed.ViewModels
 {
     public class RSSFeedViewModel: BaseViewModel
     {
+        const int maxNumberOfItems = 5;
         private ObservableCollection<FeedItem> feedItemList;
         private FeedItem selectedItem;
         private string searchText;
@@ -21,6 +22,7 @@ namespace RSSFeed.ViewModels
         public RSSFeedViewModel(INavigation navigation, IUserDialogs userDialogs, FeedChannel feedChannel): base(navigation, userDialogs)
         {
             this.feedChannel = feedChannel;
+            FeedItemList = new ObservableCollection<FeedItem>();
 
             FeedItemSelectedCommand = new Command(async () => await SelectFeedItem());
             SearchCommand = new Command<string>(SearchTitleName);
@@ -42,7 +44,7 @@ namespace RSSFeed.ViewModels
                 FeedItemList.Clear();
                 var items = feedChannel.Items;
                 var titleNameLower = titleName.ToLower();
-                foreach (var channel in items.Where(item => item.Title.ToLower().Contains(titleNameLower)))
+                foreach (var channel in items.Where(item => item.Title.ToLower().Contains(titleNameLower)).Take(maxNumberOfItems))
                 {
                     FeedItemList.Add(channel);
                 }
@@ -51,13 +53,19 @@ namespace RSSFeed.ViewModels
 
         public override async Task Refresh()
         {
-            await base.Refresh();
-
             try
             {
                 IsRefreshing = true;
                 Title = feedChannel.Title;
-                FeedItemList = new ObservableCollection<FeedItem>(feedChannel.Items);
+                var items = feedChannel.Items;
+                if (items != null && items.Any())
+                {
+                    FeedItemList.Clear();
+                    foreach (var channel in items)
+                    {
+                        FeedItemList.Add(channel);
+                    }
+                }
             }
             catch (Exception e)
             {

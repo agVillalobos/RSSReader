@@ -14,6 +14,7 @@ namespace RSSFeed.ViewModels
 {
     public class FeedChannelViewModel: BaseViewModel
     {
+        const int maxNumberOfItems = 5;
         private readonly IFeedService feedService;
         private ObservableCollection<FeedChannel> feedChannelList;
         private FeedChannel selectedFeedChannelItem;
@@ -56,8 +57,8 @@ namespace RSSFeed.ViewModels
             else
             {
                 FeedChannelList.Clear();
-                var chhannels = feedService.FeedChannels;
-                foreach (var channel in chhannels.Where(channel => channel.Title.Contains(channelName)).ToList())
+                var chhannels = feedService.FeedChannels.Take(maxNumberOfItems);
+                foreach (var channel in chhannels.Where(channel => channel.Title.Contains(channelName)))
                 {
                     FeedChannelList.Add(channel);
                 }
@@ -77,7 +78,7 @@ namespace RSSFeed.ViewModels
             {
                 IsRefreshing = true;
 
-                FeedChannelList = new ObservableCollection<FeedChannel>(feedService.FeedChannels);
+                FeedChannelList = new ObservableCollection<FeedChannel>(feedService.FeedChannels?.Take(maxNumberOfItems));
 
             } catch(Exception e)
             {
@@ -123,7 +124,10 @@ namespace RSSFeed.ViewModels
         public ObservableCollection<FeedChannel> FeedChannelList
         {
             get => feedChannelList;
-            set => SetProperty(ref feedChannelList, value);
+            set
+            {
+                SetProperty(ref feedChannelList, value);
+            }
         }
 
         public string SearchText

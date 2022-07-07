@@ -5,11 +5,7 @@
             x:Class="RSSFeed.Views.HomeView"
             BackgroundColor="White">
     <!--Pages can be added as references or inline-->
-    <NavigationPage Title="Feed">
-        <x:Arguments>
-            <local:FeedChannelView Title="Feed"/>
-        </x:Arguments>
-    </NavigationPage>
+    <local:FeedChannelView Title="Channels"/>
     <local:MyFavoritesView Title="My Favorites"/>
     <local:UserProfileView Title="Profile"/>
 

@@ -32,7 +32,8 @@ namespace RSSFeed.Services
             this.feedChannels = new List<FeedChannel>();
             myFavoriteItems = new List<FeedItem>();
 
-            _ = InitializeFeedChannels();
+            //_ = InitializeFeedChannels();
+            Task.Run(() => InitializeFeedChannels());
         }
 
         private async Task InitializeFeedChannels()
