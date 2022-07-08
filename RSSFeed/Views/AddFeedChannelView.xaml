@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderers="clr-namespace:RSSFeed.CustomRenderers"
     x:Class="RSSFeed.Views.AddFeedChannelView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    ios:Page.UseSafeArea="True">
-    <StackLayout Margin="40">
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White">
+    <StackLayout Margin="30" BackgroundColor="White">
         <Label
                 FontFamily="IconsSolid"
                 FontSize="26"

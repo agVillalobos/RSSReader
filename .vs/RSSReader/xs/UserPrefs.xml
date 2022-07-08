@@ -1,25 +1,20 @@
 ﻿<Properties StartupConfiguration="{C43E502A-E720-4F88-91EF-1513ECE062CD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/ViewModels/SignUpViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/Views/RSSFeedView.xaml">
     <Files>
-      <File FileName="RSSFeed/ViewModels/RSSFeedViewModel.cs" Line="18" Column="39" />
-      <File FileName="RSSFeed/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
-      <File FileName="RSSFeed/Views/HomeView.xaml" Line="1" Column="1" />
-      <File FileName="RSSFeed/Views/SignUpView.xaml" Line="58" Column="16" />
-      <File FileName="RSSFeed/Validations/Rules/IsValidPasswordRule.cs" Line="10" Column="145" />
-      <File FileName="RSSFeed/ViewModels/SignUpViewModel.cs" Line="78" Column="93" />
+      <File FileName="RSSFeed/Views/RSSFeedDetailView.xaml" Line="9" Column="28" />
+      <File FileName="RSSFeed/Views/WebPage.xaml" Line="8" Column="7" />
+      <File FileName="RSSFeed/Views/FeedChannelView.xaml" Line="17" Column="6" />
+      <File FileName="RSSFeed/Views/RSSFeedView.xaml" Line="13" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RSSReader" expanded="True">
             <Node name="RSSFeed" expanded="True">
-              <Node name="Validations" expanded="True">
-                <Node name="Rules" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="RSSFeedView.xaml" selected="True" />
               </Node>
-              <Node name="ViewModels" expanded="True">
-                <Node name="SignUpViewModel.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -29,16 +24,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="52" column="1" />
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="58" column="1" />
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="60" column="1" />
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="61" column="1" />
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="62" column="1" />
-      <Breakpoint file="/Users/albertogarcia/Projects/Aptivist/RSSReader/RSSFeed/ViewModels/MyFavoritesViewModel.cs" relfile="RSSFeed/ViewModels/MyFavoritesViewModel.cs" line="64" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.RSSFeed.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.ItemProperties.RSSFeed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DA69B32A-8C23-4118-A641-6DD53544E2FF" />
+  <MonoDevelop.Ide.ItemProperties.RSSFeed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5F88A032-F93E-46F6-9DC2-F80F6E3E6884" />
 </Properties>

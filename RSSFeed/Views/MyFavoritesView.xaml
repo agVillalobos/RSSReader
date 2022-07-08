@@ -7,7 +7,8 @@
     ios:Page.UseSafeArea="True"
     Title="My Favorites"
     x:Name="this"
-    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" >
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    BackgroundColor="White">
     <ContentPage.IconImageSource>
         <FontImageSource
             FontFamily="IconRegular"
@@ -18,9 +19,11 @@
     </ContentPage.IconImageSource>
     <StackLayout>
          <SearchBar
+             BackgroundColor="White"
             Placeholder="Type topic"
             SearchCommand="{Binding SearchCommand}"
-            Text="{Binding SearchText}">
+            Text="{Binding SearchText}"
+             TextColor="Black">
         </SearchBar>
         <RefreshView
             Command="{Binding RefreshCommand}"

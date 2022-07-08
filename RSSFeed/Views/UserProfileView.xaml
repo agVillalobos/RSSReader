@@ -6,7 +6,8 @@
     x:Class="RSSFeed.Views.UserProfileView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:customrenderers="clr-namespace:RSSFeed.CustomRenderers"
-    ios:Page.UseSafeArea="True">
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White">
     <ContentPage.IconImageSource>
         <FontImageSource
             FontFamily="IconRegular"

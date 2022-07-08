@@ -5,7 +5,8 @@
     x:Class="RSSFeed.Views.RSSFeedDetailView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
-    ios:Page.UseSafeArea="True">
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White">
     <ScrollView>
         <StackLayout Margin="16,4">
             <Label

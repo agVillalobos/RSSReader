@@ -6,9 +6,11 @@
     x:Class="RSSFeed.Views.RSSFeedView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="True"
-    Title="{Binding Title}">
-    <StackLayout Margin="10">
+    Title="{Binding Title}"
+    BackgroundColor="White">
+    <StackLayout Margin="1">
         <Label
+            Padding="10,0"
                 FontFamily="IconsSolid"
                 FontSize="26"
                 HorizontalTextAlignment="End"
@@ -18,9 +20,11 @@
             </Label.GestureRecognizers>
         </Label>
         <SearchBar
+            BackgroundColor="White"
             Placeholder="Type topic"
             SearchCommand="{Binding SearchCommand}"
-            Text="{Binding SearchText}">
+            Text="{Binding SearchText}"
+            TextColor="Black">
         </SearchBar>
 
         <RefreshView

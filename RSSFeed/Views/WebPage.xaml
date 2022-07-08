@@ -5,7 +5,8 @@
     x:Class="RSSFeed.Views.WebPage"
     Title="Web"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    ios:Page.UseSafeArea="True">
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <Label
