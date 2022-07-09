@@ -5,7 +5,8 @@
     x:Class="RSSFeed.Views.SignUpView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:customrenderers="clr-namespace:RSSFeed.CustomRenderers"
-    ios:Page.UseSafeArea="True">
+    ios:Page.UseSafeArea="True"
+    Visual="Material">
     <ScrollView>
         <StackLayout Padding="0,10">
             <!--Username-->

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
-using RSSFeed.Interfaces;
 using RSSFeed.Models;
 using RSSFeed.Views;
 using Xamarin.Forms;
@@ -77,16 +76,10 @@ namespace RSSFeed.ViewModels
             }
         }
 
-        private async Task SelectFeedItem()
-        {
-            await NavigationService.PushModalAsync(new RSSFeedDetailView(selectedItem), false);
-        }
-
-        protected override async Task Close()
-        {
-            await NavigationService.PopModalAsync();
-        }
-
+        private async Task SelectFeedItem() => await NavigationService.PushModalAsync(new RSSFeedDetailView(selectedItem), false);
+        
+        protected override async Task Close() => await NavigationService.PopModalAsync();
+        
         public ObservableCollection<FeedItem> FeedItemList
         {
             get => feedItemList;

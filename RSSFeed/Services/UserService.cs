@@ -29,6 +29,10 @@ namespace RSSFeed.Services
 
         public Task<bool> SignUp(User user)
         {
+            var firstOrDefaultUser = users.FirstOrDefault(currentUser => currentUser.UserName.ToLower() == user.UserName.ToLower());
+
+            if (firstOrDefaultUser != null) return Task.FromResult(false);
+
             users.Add(user);
 
             return Task.FromResult(true);

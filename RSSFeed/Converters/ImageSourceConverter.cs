@@ -7,9 +7,6 @@ namespace RSSFeed.Converters
     public class ImageSourceConverter: IValueConverter
     {
         private const string defaultNotFoundImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUrgu4a7W_OM8LmAuN7Prk8dzWXm7PVB_FmA&usqp=CAU";
-        public ImageSourceConverter()
-        {
-        }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

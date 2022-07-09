@@ -4,6 +4,7 @@
             xmlns:local="clr-namespace:RSSFeed.Views"
             x:Class="RSSFeed.Views.HomeView"
             BackgroundColor="White">
+
     <!--Pages can be added as references or inline-->
     <local:FeedChannelView Title="Channels"/>
     <local:MyFavoritesView Title="My Favorites"/>

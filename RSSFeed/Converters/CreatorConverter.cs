@@ -6,10 +6,6 @@ namespace RSSFeed.Converters
 {
     public class CreatorConverter: IValueConverter
     {
-        public CreatorConverter()
-        {
-        }
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var creator = (string)value;

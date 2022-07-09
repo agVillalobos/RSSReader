@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,8 +13,8 @@ namespace RSSFeed.ViewModels
 {
     public class FeedChannelViewModel: BaseViewModel
     {
-        const int maxNumberOfItems = 5;
         private readonly IFeedService feedService;
+        private readonly IVibrationService vibrationService;
         private ObservableCollection<FeedChannel> feedChannelList;
         private FeedChannel selectedFeedChannelItem;
         private string searchText;
@@ -23,9 +22,11 @@ namespace RSSFeed.ViewModels
         public FeedChannelViewModel(
             INavigation navigation,
             IFeedService feedService,
-            IUserDialogs userDialogs) : base(navigation, userDialogs)
+            IUserDialogs userDialogs,
+            IVibrationService vibrationService) : base(navigation, userDialogs)
         {
             this.feedService = feedService;
+            this.vibrationService = vibrationService;
 
             FeedChannelList = new ObservableCollection<FeedChannel>();
 
@@ -46,6 +47,10 @@ namespace RSSFeed.ViewModels
 
         private void SearchChannelName() => SearchChannelName(SearchText);
 
+        private async Task SeletFeedChannel() => await NavigationService.PushModalAsync(new RSSFeedView(SelectedFeedChannelItem));
+
+        private async Task NavigateToAddFeedChannel() => await NavigationService.PushModalAsync(new AddFeedChannelView());
+
         private void SearchChannelName(string channelName)
         {
             IsRefreshing = true;
@@ -57,7 +62,7 @@ namespace RSSFeed.ViewModels
             else
             {
                 FeedChannelList.Clear();
-                var chhannels = feedService.FeedChannels.Take(maxNumberOfItems);
+                var chhannels = feedService.FeedChannels;
                 foreach (var channel in chhannels.Where(channel => channel.Title.Contains(channelName)))
                 {
                     FeedChannelList.Add(channel);
@@ -67,18 +72,13 @@ namespace RSSFeed.ViewModels
             IsRefreshing = false;
         }
 
-        private async Task SeletFeedChannel()
-        {
-            await NavigationService.PushModalAsync(new RSSFeedView(SelectedFeedChannelItem));
-        }
-
         public override async Task Refresh()
         {
             try
             {
                 IsRefreshing = true;
 
-                FeedChannelList = new ObservableCollection<FeedChannel>(feedService.FeedChannels?.Take(maxNumberOfItems));
+                FeedChannelList = new ObservableCollection<FeedChannel>(feedService.FeedChannels);
 
             } catch(Exception e)
             {
@@ -102,17 +102,13 @@ namespace RSSFeed.ViewModels
             {
                 //Display error to user.
                 UserDialogs.Toast("Error to add RSS Feed, incorrect URL", TimeSpan.FromSeconds(4));
+                vibrationService.Vibrate();
             }
             else
             {
                 FeedChannelList.Add(feedChannel);
                 UserDialogs.Toast("Added correctly", TimeSpan.FromSeconds(4));
             }
-        }
-
-        private async Task NavigateToAddFeedChannel()
-        {
-            await NavigationService.PushModalAsync(new AddFeedChannelView());
         }
 
         public FeedChannel SelectedFeedChannelItem

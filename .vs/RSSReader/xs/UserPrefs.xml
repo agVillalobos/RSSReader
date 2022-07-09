@@ -1,19 +1,17 @@
 ﻿<Properties StartupConfiguration="{C43E502A-E720-4F88-91EF-1513ECE062CD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/Views/RSSFeedView.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RSSFeed/Views/SignInView.xaml">
     <Files>
-      <File FileName="RSSFeed/Views/RSSFeedDetailView.xaml" Line="9" Column="28" />
-      <File FileName="RSSFeed/Views/WebPage.xaml" Line="8" Column="7" />
-      <File FileName="RSSFeed/Views/FeedChannelView.xaml" Line="17" Column="6" />
-      <File FileName="RSSFeed/Views/RSSFeedView.xaml" Line="13" Column="21" />
+      <File FileName="RSSFeed/Views/SignInView.xaml" Line="17" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RSSReader" expanded="True">
             <Node name="RSSFeed" expanded="True">
-              <Node name="ViewModels" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Behaviors" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="RSSFeedView.xaml" selected="True" />
+                <Node name="SignInView.xaml" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -22,11 +20,11 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.RSSFeed.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
-  <MonoDevelop.Ide.ItemProperties.RSSFeed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5F88A032-F93E-46F6-9DC2-F80F6E3E6884" />
+  <MonoDevelop.Ide.ItemProperties.RSSFeed.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.117cf73997a168a136d48c156ea179e30ce2a9b5" />
 </Properties>

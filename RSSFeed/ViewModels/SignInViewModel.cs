@@ -83,9 +83,6 @@ namespace RSSFeed.ViewModels
             }
         }
 
-        private async Task SignUp()
-        {
-            await NavigationService.PushAsync(new SignUpView());
-        }
+        private async Task SignUp() => await NavigationService.PushAsync(new SignUpView());
     }
 }

@@ -29,14 +29,8 @@ namespace RSSFeed.Views
         {
             if (!animationView.IsAnimating)
             {
-                if (isOn)
-                {
-                    animationView.PlayMinAndMaxFrame(1, 2);
-                }
-                else
-                {
-                    animationView.PlayMinAndMaxFrame(1, 60);
-                }
+                if (isOn) { animationView.PlayMinAndMaxFrame(1, 2); }
+                else { animationView.PlayMinAndMaxFrame(1, 60); }
 
                 animationView.Progress = 0;
                 isOn = !isOn;

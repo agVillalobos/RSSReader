@@ -29,10 +29,10 @@
             </SearchBar>
             <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
                 <CollectionView
-            ItemsSource="{Binding FeedChannelList}"
-            SelectedItem="{Binding SelectedFeedChannelItem}"
-            SelectionChangedCommand="{Binding FeedChannelItemSelectedCommand}"
-            SelectionMode="Single">
+                    ItemsSource="{Binding FeedChannelList}"
+                    SelectedItem="{Binding SelectedFeedChannelItem}"
+                    SelectionChangedCommand="{Binding FeedChannelItemSelectedCommand}"
+                    SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <ContentView>
@@ -55,18 +55,18 @@
                                 <Image VerticalOptions="EndAndExpand">
                                     <Image.Source>
                                         <FontImageSource
-                                    FontFamily="IconRegular"
-                                    Glyph="&#xe0e5;"
-                                    Size="160"
-                                    Color="LightGray" />
+                                            FontFamily="IconRegular"
+                                            Glyph="&#xe0e5;"
+                                            Size="160"
+                                            Color="LightGray" />
                                     </Image.Source>
                                 </Image>
                                 <Label
-                            HorizontalTextAlignment="Center"
-                            FontAttributes="Italic"
-                            Text="Not RSS Feed Found"
-                            TextColor="{StaticResource PrimaryColor}"
-                            VerticalOptions="StartAndExpand">
+                                    HorizontalTextAlignment="Center"
+                                    FontAttributes="Italic"
+                                    Text="Not RSS Feed Found"
+                                    TextColor="{StaticResource PrimaryColor}"
+                                    VerticalOptions="StartAndExpand">
                                 </Label>
                             </StackLayout>
                         </ContentView>
@@ -86,7 +86,5 @@
             HeightRequest="70"
             Margin="0,0,20,22"
             VerticalOptions="End"/>
-
     </Grid>
-
 </ContentPage>

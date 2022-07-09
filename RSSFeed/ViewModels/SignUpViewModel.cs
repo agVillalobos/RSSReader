@@ -42,7 +42,6 @@ namespace RSSFeed.ViewModels
 
             var isSignUpSuccesfull = await userService.SignUp(new Models.User(Username.Value, Password.Value, Email.Value, Surname.Value, Lastname.Value, "", Phone.Value));
 
-
             if (isSignUpSuccesfull)
             {
                 SignUpCommand.CanExecute(false);
@@ -53,7 +52,7 @@ namespace RSSFeed.ViewModels
             }
             else
             {
-                UserDialogs.Toast("Error while trying to add User. Please try again.", TimeSpan.FromSeconds(2));
+                UserDialogs.Toast("Error while trying to add User. Please try again with diferent UserName.", TimeSpan.FromSeconds(2));
             }
 
         }

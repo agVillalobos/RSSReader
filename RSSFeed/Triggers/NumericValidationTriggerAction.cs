@@ -8,8 +8,7 @@ namespace RSSFeed.Triggers
     {
         protected override void Invoke(CustomEntry entry)
         {
-            double result;
-            bool isValid = Double.TryParse(entry.Text, out result);
+            bool isValid = Double.TryParse(entry.Text, out var result);
             entry.BackgroundColor = isValid ? Color.Default : Color.Red;
         }
     }

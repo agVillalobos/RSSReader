@@ -13,12 +13,9 @@ namespace RSSFeed.Views
 
             var feedService = DependencyService.Get<IFeedService>();
             var userDialogs = DependencyService.Get<IUserDialogs>();
+            var vibrationService = DependencyService.Get<IVibrationService>();
 
-            this.BindingContext = new FeedChannelViewModel(Navigation, feedService, userDialogs);
-        }
-
-        void RefreshView_Refreshing(System.Object sender, System.EventArgs e)
-        {
+            this.BindingContext = new FeedChannelViewModel(Navigation, feedService, userDialogs, vibrationService);
         }
     }
 }

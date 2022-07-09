@@ -65,15 +65,15 @@
 
         <!--Explicit Styles-->
         <Style x:Key="ValidationErrorLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
-                <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+            <Setter Property="FontSize" Value="12" />
         </Style>
 
-          <Style TargetType="Label" x:Key="TitleStyle">
-                <Setter Property="TextColor" Value = "{StaticResource PrimaryColor}"   />
-                <Setter Property="HorizontalOptions" Value = "Center"   />
-                <Setter Property="FontSize" Value = "Title"   />
-            </Style>
+        <Style TargetType="Label" x:Key="TitleStyle">
+            <Setter Property="TextColor" Value = "{StaticResource PrimaryColor}"   />
+            <Setter Property="HorizontalOptions" Value = "Center"   />
+            <Setter Property="FontSize" Value = "Title"   />
+        </Style>
 
         <!--Converters-->
         <converters:DateTimeConverter x:Key="DateTimeConverter" />

@@ -18,16 +18,14 @@
         </FontImageSource>
     </ContentPage.IconImageSource>
     <StackLayout>
-         <SearchBar
-             BackgroundColor="White"
+        <SearchBar
+            BackgroundColor="White"
             Placeholder="Type topic"
             SearchCommand="{Binding SearchCommand}"
             Text="{Binding SearchText}"
-             TextColor="Black">
+            TextColor="Black">
         </SearchBar>
-        <RefreshView
-            Command="{Binding RefreshCommand}"
-            IsRefreshing="{Binding IsRefreshing}">
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView
                 SelectedItem="{Binding SelectedItem}"
                 SelectionChangedCommand="{Binding FeedItemSelectedCommand}"
@@ -51,7 +49,7 @@
                                     <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
                                            WidthRequest="120"
                                            HeightRequest="60"
-                                        Aspect="AspectFit"/>
+                                           Aspect="AspectFit"/>
                                     <StackLayout Margin="0,16">
                                         <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
                                            TextColor="Gray"/>
@@ -75,12 +73,12 @@
                                 AnimationSource="AssetOrBundle"
                                 AutoPlay="True"/>
                             <Label
-                            HorizontalTextAlignment="Center"
-                            FontAttributes="Bold"
-                            FontSize="24"
-                            Text="No favorite articles yet"
-                            TextColor="{StaticResource PrimaryColor}"
-                            VerticalOptions="StartAndExpand">
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold"
+                                FontSize="24"
+                                Text="No favorite articles yet"
+                                TextColor="{StaticResource PrimaryColor}"
+                                VerticalOptions="StartAndExpand">
                             </Label>
                         </StackLayout>
                     </ContentView>

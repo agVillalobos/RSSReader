@@ -14,7 +14,7 @@
             Padding="4"
             AbsoluteLayout.LayoutBounds=".5,.8,.9,.4"
             AbsoluteLayout.LayoutFlags="All"
-            HasShadow="True">
+            HasShadow="False">
             <StackLayout VerticalOptions="CenterAndExpand">
                 <customrenderers:CustomEntry Text="{Binding UserName}" Placeholder="Username" x:Name="userName"/>
                 <customrenderers:CustomEntry Text="{Binding Password}" IsPassword="True" Placeholder="Password" x:Name="password"/>

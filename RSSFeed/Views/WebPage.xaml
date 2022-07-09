@@ -20,7 +20,5 @@
             </Label>
         <WebView Source="{Binding WebviewSource}" VerticalOptions = "FillAndExpand"/>
         </StackLayout>
-        
     </ContentPage.Content>
-
 </ContentPage>

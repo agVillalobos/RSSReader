@@ -8,14 +8,14 @@
     BackgroundColor="White">
     <StackLayout Margin="30" BackgroundColor="White">
         <Label
-                FontFamily="IconsSolid"
-                FontSize="26"
-                HorizontalTextAlignment="End"
-                Text="&#x00D7;">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+            FontFamily="IconsSolid"
+            FontSize="26"
+            HorizontalTextAlignment="End"
+            Text="&#x00D7;">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
         <customrenderers:CustomEntry Text="{Binding FeedUrl}" Keyboard="Text" Placeholder="URL"/>
         <Button Text="Add" Command="{Binding AddFeedChannelCommand}"/>
     </StackLayout>

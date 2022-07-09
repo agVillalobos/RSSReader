@@ -9,11 +9,6 @@ namespace RSSFeed.Parser
 {
     public class FeedItemParser
     {
-
-        public FeedItemParser()
-        {
-        }
-
         public FeedChannel ParseFeedChannel(string response)
         {
             if (response == null) return null;

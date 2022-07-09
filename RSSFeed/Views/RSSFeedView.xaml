@@ -11,10 +11,10 @@
     <StackLayout Margin="1">
         <Label
             Padding="10,0"
-                FontFamily="IconsSolid"
-                FontSize="26"
-                HorizontalTextAlignment="End"
-                Text="&#x00D7;">
+            FontFamily="IconsSolid"
+            FontSize="26"
+            HorizontalTextAlignment="End"
+            Text="&#x00D7;">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CloseCommand}" />
             </Label.GestureRecognizers>
@@ -27,9 +27,7 @@
             TextColor="Black">
         </SearchBar>
 
-        <RefreshView
-            Command="{Binding RefreshCommand}"
-            IsRefreshing="{Binding IsRefreshing}">
+        <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView
                 SelectedItem="{Binding SelectedItem}"
                 SelectionChangedCommand="{Binding FeedItemSelectedCommand}"
@@ -43,12 +41,11 @@
                         <ContentView>
                             <StackLayout Orientation="Horizontal" Padding="10,0" Margin="0">
                                 <Image Source="{Binding Content.UrlImage, Converter={StaticResource ImageSourceConverter}}"
-                                           WidthRequest="120"
-                                           HeightRequest="60"
-                                        Aspect="AspectFit"/>
+                                       WidthRequest="120"
+                                       HeightRequest="60"
+                                       Aspect="AspectFit"/>
                                 <StackLayout Margin="0,16">
-                                    <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}"
-                                           TextColor="Gray"/>
+                                    <Label Text="{Binding PubDate, Converter={StaticResource DateTimeConverter}}" TextColor="Gray"/>
                                     <Label Text="{Binding Title}" FontFamily="Medium" FontSize="20" TextColor="Black"/>
                                     <Label Text="{Binding Creator, Converter={StaticResource CreatorConverter}}" FontFamily="Medium" FontSize="13" TextColor="Gray"/>
                                 </StackLayout>

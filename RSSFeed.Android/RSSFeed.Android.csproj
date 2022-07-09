@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Effects\UnderlineLabelEffect.cs" />
     <Compile Include="CustomRenderers\CustomEntryRenderer.cs" />
+    <Compile Include="PlatformServices\VibrationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -123,6 +124,7 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Effects\" />
     <Folder Include="CustomRenderers\" />
+    <Folder Include="PlatformServices\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RSSFeed\RSSFeed.csproj">

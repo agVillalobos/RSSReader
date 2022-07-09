@@ -73,6 +73,7 @@
     <Compile Include="Effects\UnderlineLabelEffect.cs" />
     <Compile Include="CustomRenderers\CustomEntryRenderer.cs" />
     <None Include="Info %28copy%29.plist" />
+    <Compile Include="PlatformServices\VibrationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -124,6 +125,7 @@
     <Folder Include="Effects\" />
     <Folder Include="CustomRenderers\" />
     <Folder Include="Assets.xcassets\RSSIcon.imageset\" />
+    <Folder Include="PlatformServices\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\LaunchScreen.storyboard" />

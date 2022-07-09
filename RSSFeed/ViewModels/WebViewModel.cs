@@ -14,11 +14,8 @@ namespace RSSFeed.ViewModels
             WebviewSource = webURL;
         }
 
-        protected override async Task Close()
-        {
-            await NavigationService.PopModalAsync();
-        }
-
+        protected override async Task Close() => await NavigationService.PopModalAsync();
+        
         public string WebviewSource
         {
             get => webviewSource;

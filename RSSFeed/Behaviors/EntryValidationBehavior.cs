@@ -1,6 +1,4 @@
-﻿using System;
-using RSSFeed.CustomRenderers;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace RSSFeed.Behaviors
 {
@@ -8,20 +6,10 @@ namespace RSSFeed.Behaviors
     {
         public static readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(EntryValidationBehavior), true, BindingMode.Default, null, (bindable, oldValue, newValue) => OnIsValidChanged(bindable, newValue));
 
-        public EntryValidationBehavior()
-        {
-        }
-
         public bool IsValid
         {
-            get
-            {
-                return (bool)GetValue(IsValidProperty);
-            }
-            set
-            {
-                SetValue(IsValidProperty, value);
-            }
+            get => (bool)GetValue(IsValidProperty);
+            set => SetValue(IsValidProperty, value);
         }
 
         private static void OnIsValidChanged(BindableObject bindable, object newValue)

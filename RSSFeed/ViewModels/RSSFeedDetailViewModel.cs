@@ -30,7 +30,7 @@ namespace RSSFeed.ViewModels
         private void AddRemoveMyFavorites()
         {
             feedItem.Favorite = !feedItem.Favorite;
-            String message = null;
+            string message;
             if (feedItem.Favorite)
             {
                 var isFeedItemAddedSuccessfully = feedService.AddFeedItem(feedItem);
@@ -45,16 +45,10 @@ namespace RSSFeed.ViewModels
 
         }
 
-        private async Task OpenWebView()
-        {
-            await NavigationService.PushModalAsync(new Views.WebPage(FeedItem.Guid));
-        }
+        private async Task OpenWebView() => await NavigationService.PushModalAsync(new Views.WebPage(FeedItem.Guid));
 
-        protected override async Task Close()
-        {
-            await NavigationService.PopModalAsync();
-        }
-
+        protected override async Task Close() => await NavigationService.PopModalAsync();
+        
         public ICommand OpenWebViewCommand { get; private set; }
         public ICommand AddRemoveMyFavoritesCommand { get; private set; }
 
@@ -69,6 +63,5 @@ namespace RSSFeed.ViewModels
             get => feedItem;
             set => SetProperty(ref feedItem, value);
         }
-
     }
 }
